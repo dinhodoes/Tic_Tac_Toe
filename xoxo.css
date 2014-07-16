@@ -1,0 +1,18 @@
+#container {
+	width: 456px;
+	height: 456px;
+	border: 1px solid black;
+	margin: auto;
+}
+
+.squares {
+	height: 150px;
+	width: 150px;
+	border: 1px solid black;
+	font-size: 100px;
+	margin: 0;
+	padding: 0;
+	display: block;
+	float: left;
+
+}

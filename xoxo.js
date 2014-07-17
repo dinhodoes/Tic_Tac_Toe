@@ -1,13 +1,5 @@
-var xoxoApp = angular.module('xoxoApp', ['ngRoute']);
-
 var player = 1
 
-
-// xoxoApp.controller('GameController', function ($scope) {
-//   $scope.game = [
-//     {},
-
-//});
 function clickBox(box) {
 	var currentBox = document.getElementById(box);
 
@@ -22,3 +14,11 @@ function clickBox(box) {
 };
 };
 	
+// module
+var xoxoApp = angular.module('xoxoApp', []); 
+// defines controller
+xoxoApp.controller('GameController', function ($scope) { 
+   
+    $scope.boxes = []
+
+   });

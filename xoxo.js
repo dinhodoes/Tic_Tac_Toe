@@ -1,9 +1,16 @@
+var xoxoApp = angular.module('xoxoApp', ['ngRoute']);
+
 var player = 1
 
+
+// xoxoApp.controller('GameController', function ($scope) {
+//   $scope.game = [
+//     {},
+
+//});
 function clickBox(box) {
 	var currentBox = document.getElementById(box);
 
-//console.log(currentBox.innerHTML === "")
 	if (currentBox.innerHTML == "") {
 		if(player == 1) {
 			currentBox.innerHTML = "X";

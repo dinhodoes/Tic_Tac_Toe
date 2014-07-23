@@ -2,6 +2,12 @@ h1 {
 	text-align: center;
 }
 
+button {
+	margin: auto;
+	height: 30px;
+	width: 75px;
+}
+
 #container {
 	width: 480px;
 	height: 480px;

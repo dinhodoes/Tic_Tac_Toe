@@ -18,7 +18,7 @@ button {
 .squares {
 	height: 150px;
 	width: 150px;
-	border: 1px solid black;
+	border: 1px solid #d3d3d3;
 	font-size: 100px;
 	margin: 1px;
 	padding: 0;
@@ -28,6 +28,7 @@ button {
 	line-height: 150px;
 	vertical-align: middle;
 	border-radius: 15%;
+	background-color: #d3d3d3;
 
 	}
 
@@ -36,4 +37,6 @@ button {
 	border-width: 1px;
 	border-color: #3BB9FF;
 }
+
+.playagain
 

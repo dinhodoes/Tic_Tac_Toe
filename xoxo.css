@@ -1,5 +1,6 @@
 h1 {
 	text-align: center;
+	color: white;
 }
 
 button {
@@ -9,10 +10,11 @@ button {
 }
 
 #container {
-	width: 480px;
-	height: 480px;
+	width: 462px;
+	height: 462px;
 	border: none;
 	margin: auto;
+	padding: 3px;
 }
 
 .squares {
@@ -29,6 +31,7 @@ button {
 	vertical-align: middle;
 	border-radius: 15%;
 	background-color: #d3d3d3;
+	opacity: 0.5;
 
 	}
 
@@ -36,6 +39,7 @@ button {
 	border-style: solid;
 	border-width: 1px;
 	border-color: #3BB9FF;
+	opacity: 1.0;
 }
 
 .playagain {
@@ -45,5 +49,33 @@ button {
 	border-radius: 15px;
 	width: 100px;
 	height: 100px;
+	background-color: white;
 }
+
+.resetbox {
+	text-align: center;
+	margin: auto;
+	opacity: .5;
+	border-radius: 15px;
+	width: 462px;
+	color: white;
+	display: block;
+	background-color: #d3d3d3;
+}
+
+video#bgvid {
+position: fixed; 
+right: 0; 
+bottom: 0;
+min-width: 100%; 
+min-height: 100%;
+width: auto; 
+height: auto; 
+z-index: -10;
+background: url(../xoxo/assets/pics/money.jpg) no-repeat;
+background-size: cover;
+}
+
+
+
 

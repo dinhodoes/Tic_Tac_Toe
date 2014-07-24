@@ -1,15 +1,28 @@
+
+//Defines Module
 var xoxoApp = angular.module('xoxoApp', ['firebase']); 
 xoxoApp.controller('GameController', function ($scope, $firebase) { 
 
-	$scope.clickBtn = $firebase(new Firebase("https://xoxo.firebaseio.com/clickBtn"));
 
-	$scope.remoteboxes = $firebase(new Firebase("https://xoxo.firebaseio.com/remoteboxes"));
+$scope.clickCounter = $firebase(new Firebase('https://xoxo.firebaseio.com/' + 'clickCounter'));
+$scope.clickCounter.$add({clickCount: 7});
 
 
-	var myDataRef = new Firebase('https://xoxo.firebaseio.com/'); 
+var xoxoDataRef = new Firebase('https://xoxo.firebaseio.com/'); 
 
-    $scope.boxes = ['','','','','','','','',''];
-	$scope.player = 1;
+
+$scope.remoteCellList = $firebase(new Firebase("https://xoxo.firebaseio.com" + "/remoteCellList"));
+
+
+$scope.boxes = ['','','','','','','','',''];
+$scope.player = 1;
+
+
+	$scope.remoteCellList.$bind($scope, "boxes");
+$scope.$watch('boxes', function() {
+    console.log('Model changed!') ;
+  });
+
 
 	var combos = [
 		[0,1,2],[3,4,5],[6,7,8],[0,3,6],

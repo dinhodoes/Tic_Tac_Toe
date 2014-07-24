@@ -1,5 +1,3 @@
-
-
 var xoxoApp = angular.module('xoxoApp', ['firebase']); 
 xoxoApp.controller('GameController', function ($scope, $firebase) { 
 
@@ -7,7 +5,6 @@ xoxoApp.controller('GameController', function ($scope, $firebase) {
 
 	$scope.remoteboxes = $firebase(new Firebase("https://xoxo.firebaseio.com/remoteboxes"));
 
-	
 
 	var myDataRef = new Firebase('https://xoxo.firebaseio.com/'); 
 
@@ -28,20 +25,22 @@ xoxoApp.controller('GameController', function ($scope, $firebase) {
 	 			if ($scope.boxes[combos[i][j]] == 'X') {
 	 				xcount += 1;
 	 					if (xcount == 3)
-	 					alert('X wins!');
+	 						$scope.xwins = 'x';	 						
 	 			} else if ($scope.boxes[combos[i][j]] == 'O') {
 	 				ocount += 1;
-	 					if (ocount == 3)
-	 					alert('O wins!');
+	 					if (ocount == 3) {
+	 						$scope.owins = 'o';
+	 					}
 	 			}
 	 		}
-		}		
-
+		}			
 	};
 	// Reset Function
 	$scope.reset = function() {
 		$scope.boxes = ['','','','','','','','',''];
 		$scope.player = 1;
+		$scope.xwins = '';
+		$scope.owins = '';
 	};
 	// Clicking buttons 
 	$scope.clickBtn = function(btn) {
@@ -54,17 +53,8 @@ xoxoApp.controller('GameController', function ($scope, $firebase) {
 	 			$scope.player += 1;
 	 		};
 	 		$scope.check();
-	 		// $scope.reset();	
-
 	 	};	
 	};
-
 	
-});
-
-
-
-    
-
-
+});   
  

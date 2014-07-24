@@ -38,5 +38,12 @@ button {
 	border-color: #3BB9FF;
 }
 
-.playagain
+.playagain {
+	position: absolute;
+	margin-top: -300px;
+	margin-left: 600px;
+	border-radius: 15px;
+	width: 100px;
+	height: 100px;
+}
 

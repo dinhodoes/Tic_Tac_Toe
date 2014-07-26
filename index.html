@@ -16,24 +16,47 @@
 
 <body ng-model="boxes" ng-controller="GameController">
 
-<video  autoplay loop poster="../xoxo/assets/pics/money.jpg" id="bgvid">
-<source src="../xoxo/assets/video/makeitrain.mp4" type="video/mp4">
-</video>
+	<video  autoplay loop poster="../xoxo/assets/pics/money.jpg" id="bgvid">
+	<source src="../xoxo/assets/video/makeitrain.mp4" type="video/mp4">
+	</video>
 
-
-	<h1>TIC TAC DOUGH</h1>
-
-	<div id="container">
-		<div class="squares" ng-repeat="btn in boxes track by $index" ng-click="clickBtn($index)">
-		{{btn}}
-		</div>
-	</div>
 	
-	<button class="playagain" ng-show="xwins" ng-click="reset()">X wins! Play again?</button>
-	<button class="playagain" ng-show="owins" ng-click="reset()">O wins! Play again?</button>
+	<h1>TIC TAC DOUGH</h1>
+	
+	<div class="maincontainer">
+		<div class="subcontainer">
+			<div id="grid">
+				<div class="squares" ng-repeat="btn in boxes track by $index" ng-click="clickBtn($index)">
+				{{btn}}
+				</div>
+			</div>
+		</div>
+		
+		<br/>
+		
+		<button type="button" class="resetbox" ng-click="reset()">RESET</button>
 
-	<button type="button" class="resetbox" ng-click="reset()">RESET</button>
+		<button class="playagain" ng-show="xwins" ng-click="reset()">X wins! Play again?</button>
+		<button class="playagain" ng-show="owins" ng-click="reset()">O wins! Play again?</button>
+		
+		<br/>
+		
+		<div class="chat" ng-controller="chat">
+			<div class="comment" ng-repeat="comment in comments">
+				<span>
+				<b>{{comment.from}}:</b>
+				<br/>
+				{{comment.body}}
+				</span>
+			</div>
 
+			<div class="textwrap">
+				<textarea ng-model="newComment" ng-keydown="addComment($event)"></textarea>
+			</div>
+		</div>
+
+
+	</div>
 </body>
 </html>
 

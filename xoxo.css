@@ -1,20 +1,25 @@
 h1 {
 	text-align: center;
 	color: white;
+	padding: 50px;
+	margin-top: 30px;
 }
 
 button {
 	margin: auto;
-	height: 30px;
+	height: 40px;
 	width: 75px;
 }
 
-#container {
+#grid {
 	width: 462px;
 	height: 462px;
 	border: none;
 	margin: auto;
 	padding: 3px;
+}
+.subcontainer {
+	float:left;
 }
 
 .squares {
@@ -41,11 +46,31 @@ button {
 	border-color: #3BB9FF;
 	opacity: 1.0;
 }
+.maincontainer {
+	margin-top: 60px;
+	margin-right: auto;
+	margin-left: auto;
+	height: 1200px;
+	width: 470px;
+}
+textarea {
+	width: 400px;
+	height: 100px;
+}
+
+span {
+	color: white;
+}
+
+.chat {
+    float: left;
+    margin-left: 30px;
+}
 
 .playagain {
 	position: absolute;
 	margin-top: -300px;
-	margin-left: 600px;
+	margin-left: 100px;
 	border-radius: 15px;
 	width: 100px;
 	height: 100px;
@@ -61,6 +86,13 @@ button {
 	color: white;
 	display: block;
 	background-color: #d3d3d3;
+}
+
+.resetbox:hover {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #3BB9FF;
+	opacity: 1.0;
 }
 
 video#bgvid {

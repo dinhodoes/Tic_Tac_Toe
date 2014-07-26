@@ -1,27 +1,56 @@
 
-//Defines Module
 var xoxoApp = angular.module('xoxoApp', ['firebase']); 
+
+
+// Chat Controller ------------------------------------------------
+
+xoxoApp.controller('chat', ['$scope', '$firebase', function ($scope, $firebase) {
+
+	var xoxoChatRef = new Firebase('https://xoxo.firebaseio.com/'); 
+	$scope.comments = $firebase(xoxoChatRef.limit(10));
+
+	$scope.username = 'Guest' + Math.floor(Math.random() * 100);
+	$scope.addComment = function(event){
+		if (event.keyCode != 13) return;
+		$scope.comments.$add({
+			from: $scope.usename,
+			body: $scope.newComment
+		});
+		$scope.newComment = "";
+	}
+
+}]);
+
+
+
+
+
+
+// Game Controller ------------------------------------------------
+
 xoxoApp.controller('GameController', function ($scope, $firebase) { 
 
 
-$scope.clickCounter = $firebase(new Firebase('https://xoxo.firebaseio.com/' + 'clickCounter'));
-$scope.clickCounter.$add({clickCount: 7});
+	$scope.clickCounter = $firebase(new Firebase('https://xoxo.firebaseio.com/' + 'clickCounter'));
+	$scope.clickCounter.$add({clickCount: 7});
 
 
-var xoxoDataRef = new Firebase('https://xoxo.firebaseio.com/'); 
+	$scope.remoteCellList = $firebase(new Firebase("https://xoxo.firebaseio.com" + "/remoteCellList"));
 
 
-$scope.remoteCellList = $firebase(new Firebase("https://xoxo.firebaseio.com" + "/remoteCellList"));
+	var xoxoDataRef = new Firebase('https://xoxo.firebaseio.com/'); 
 
 
-$scope.boxes = ['','','','','','','','',''];
-$scope.player = 1;
+
+	$scope.boxes = ['','','','','','','','',''];
+	$scope.player = 1;
+
 
 
 	$scope.remoteCellList.$bind($scope, "boxes");
-$scope.$watch('boxes', function() {
-    console.log('Model changed!') ;
-  });
+	$scope.$watch('boxes', function() {
+	    console.log('Model changed!') ;
+	  });
 
 
 	var combos = [
@@ -29,7 +58,10 @@ $scope.$watch('boxes', function() {
 		[1,4,7],[2,5,8],[0,4,8],[2,4,6]
 	];
 
-	// Checking to see if there's a winner
+
+
+
+	// Checking for Winner
 	$scope.check = function() {
 	 	for (var i = 0; i < combos.length; i++) {
 	 		var xcount = 0;
@@ -69,5 +101,7 @@ $scope.$watch('boxes', function() {
 	 	};	
 	};
 	
-});   
+}); 
+
+
  

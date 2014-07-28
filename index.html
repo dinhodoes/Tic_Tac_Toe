@@ -22,11 +22,12 @@
 
 	
 	<h1 ng-show="turn1()"> {{x}}</h1>
-	<h1 ng-show="turn2()"> {{y}}</h1>q
+	<h1 ng-show="turn2()"> {{y}}</h1>
 
 
 	
 	<div class="maincontainer">
+		
 		<div class="subcontainer">
 			<div id="grid">
 				<div class="squares" ng-repeat="btn in boxes track by $index" ng-click="clickBtn($index)">

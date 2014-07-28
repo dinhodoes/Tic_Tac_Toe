@@ -14,7 +14,7 @@ xoxoApp.controller('chat', ['$scope', '$firebase', function ($scope, $firebase) 
 	
 
 		$scope.addComment = function(event){
-		if (event.keyCode != 13) return;
+		if (event.keyCode != 13) return; 
 		$scope.comments.$add({
 			from: $scope.usename,
 			body: $scope.newComment
@@ -83,7 +83,7 @@ xoxoApp.controller('GameController', function ($scope, $firebase) {
 	 					}
 	 			}
 	 		}
-		}			
+		}		
 	};
 
 	$scope.draw = function() {
@@ -99,7 +99,7 @@ xoxoApp.controller('GameController', function ($scope, $firebase) {
 		$scope.xwins = '';
 		$scope.owins = '';
 		$scope.tie = '';
-		$scope.count = '0';
+		$scope.count = 0;
 		var xcount = 0;
 		var ocount = 0;
 	};
@@ -136,7 +136,6 @@ xoxoApp.controller('GameController', function ($scope, $firebase) {
 			return true;
 		}
 	 };
-
 	
 }); 
 

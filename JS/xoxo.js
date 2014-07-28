@@ -7,10 +7,13 @@ var xoxoApp = angular.module('xoxoApp', ['firebase']);
 xoxoApp.controller('chat', ['$scope', '$firebase', function ($scope, $firebase) {
 
 	var xoxoChatRef = new Firebase('https://xoxo.firebaseio.com/'); 
+	
 	$scope.comments = $firebase(xoxoChatRef.limit(10));
 
 	$scope.username = 'Guest' + Math.floor(Math.random() * 100);
-	$scope.addComment = function(event){
+	
+
+		$scope.addComment = function(event){
 		if (event.keyCode != 13) return;
 		$scope.comments.$add({
 			from: $scope.usename,
@@ -18,11 +21,7 @@ xoxoApp.controller('chat', ['$scope', '$firebase', function ($scope, $firebase) 
 		});
 		$scope.newComment = "";
 	}
-
 }]);
-
-
-
 
 
 
@@ -44,8 +43,12 @@ xoxoApp.controller('GameController', function ($scope, $firebase) {
 
 	$scope.boxes = ['','','','','','','','',''];
 	$scope.player = 1;
+	$scope.x = "Player 1 Turn";
+	$scope.y = "Player 2 Turn";
+	$scope.count = 0;
 
 
+	
 
 	$scope.remoteCellList.$bind($scope, "boxes");
 	$scope.$watch('boxes', function() {
@@ -59,6 +62,8 @@ xoxoApp.controller('GameController', function ($scope, $firebase) {
 	];
 
 
+	var xcount = 0;
+	var ocount = 0;
 
 
 	// Checking for Winner
@@ -80,26 +85,58 @@ xoxoApp.controller('GameController', function ($scope, $firebase) {
 	 		}
 		}			
 	};
+
+	$scope.draw = function() {
+		if ($scope.count == 9 && xcount !==3 && ocount !== 3) {
+			$scope.tie = 't';
+		};
+	};
+
 	// Reset Function
 	$scope.reset = function() {
 		$scope.boxes = ['','','','','','','','',''];
 		$scope.player = 1;
 		$scope.xwins = '';
 		$scope.owins = '';
+		$scope.tie = '';
+		$scope.count = '0';
+		var xcount = 0;
+		var ocount = 0;
 	};
+
+
 	// Clicking buttons 
 	$scope.clickBtn = function(btn) {
 		if ($scope.boxes[btn] == '') {
 	 		if ($scope.player == 1) {
 	 			$scope.boxes[btn] = 'X';
 	 			$scope.player -= 1;
+	 			$scope.count += 1;
 	 		} else {
+	 			$scope.player == 0;
 	 			$scope.boxes[btn] = 'O';
 	 			$scope.player += 1;
+	 			$scope.count += 1;
 	 		};
 	 		$scope.check();
+	 		$scope.draw();
 	 	};	
 	};
+
+
+	// Player Turn
+	$scope.turn1 = function() {
+		if ($scope.player == 1) {
+			return true;
+		}
+	 };
+
+	 $scope.turn2 = function() {
+		if ($scope.player == 0) {
+			return true;
+		}
+	 };
+
 	
 }); 
 

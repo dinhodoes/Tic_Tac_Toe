@@ -10,15 +10,17 @@ xoxoApp.controller('chat', ['$scope', '$firebase', function ($scope, $firebase) 
 	
 	$scope.comments = $firebase(xoxoChatRef.limit(10));
 
-	$scope.username = 'Guest' + Math.floor(Math.random() * 100);
+	// $scope.username = 'Guest' + Math.floor(Math.random() * 100);
 	
-
+		// Add shift + enter function
 		$scope.addComment = function(event){
-		if (event.keyCode != 13) return; 
+		if (event.keyCode != 13) return;
+		
 		$scope.comments.$add({
 			from: $scope.usename,
 			body: $scope.newComment
 		});
+
 		$scope.newComment = "";
 	}
 }]);
@@ -85,7 +87,7 @@ xoxoApp.controller('GameController', function ($scope, $firebase) {
 	 		}
 		}		
 	};
-
+	// Check for Draw
 	$scope.draw = function() {
 		if ($scope.count == 9 && xcount !==3 && ocount !== 3) {
 			$scope.tie = 't';
@@ -119,7 +121,7 @@ xoxoApp.controller('GameController', function ($scope, $firebase) {
 	 			$scope.count += 1;
 	 		};
 	 		$scope.check();
-	 		$scope.draw();
+	 		$scope.draw();	// Doesn't allow player to win on last box
 	 	};	
 	};
 

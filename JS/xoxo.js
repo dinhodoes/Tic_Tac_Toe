@@ -1,10 +1,10 @@
 
-var xoxoApp = angular.module('xoxoApp', ['firebase']); 
+var app = angular.module('app', ['firebase']); 
 
 
 // Chat Controller ------------------------------------------------
 
-xoxoApp.controller('chat', ['$scope', '$firebase', function ($scope, $firebase) {
+app.controller('chat', ['$scope', '$firebase', function ($scope, $firebase) {
 
 	var xoxoChatRef = new Firebase('https://xoxo.firebaseio.com/'); 
 	
@@ -29,7 +29,7 @@ xoxoApp.controller('chat', ['$scope', '$firebase', function ($scope, $firebase) 
 
 // Game Controller ------------------------------------------------
 
-xoxoApp.controller('GameController', ['$scope', '$firebase', function ($scope, $firebase) { 
+app.controller('GameController', ['$scope', '$firebase', function ($scope, $firebase) { 
 
 
 	$scope.clickCounter = $firebase(new Firebase('https://xoxo.firebaseio.com/' + 'clickCounter'));

@@ -29,7 +29,7 @@ xoxoApp.controller('chat', ['$scope', '$firebase', function ($scope, $firebase) 
 
 // Game Controller ------------------------------------------------
 
-xoxoApp.controller('GameController', function ($scope, $firebase) { 
+xoxoApp.controller('GameController', ['$scope', '$firebase', function ($scope, $firebase) { 
 
 
 	$scope.clickCounter = $firebase(new Firebase('https://xoxo.firebaseio.com/' + 'clickCounter'));
@@ -139,7 +139,7 @@ xoxoApp.controller('GameController', function ($scope, $firebase) {
 		}
 	 };
 	
-}); 
+}]); 
 
 
  
